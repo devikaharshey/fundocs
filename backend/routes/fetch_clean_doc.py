@@ -21,7 +21,9 @@ DOCS_COLLECTION_ID = os.getenv("APPWRITE_DOCS_COLLECTION_ID")
 GOOGLE_API_KEY = os.getenv("GOOGLE_API_KEY")
 GOOGLE_CX_ID = os.getenv("GOOGLE_CX_ID")
 
-PROGRESS_SERVICE_URL = "http://localhost:5000/api/update_progress"
+BACKEND_URL = os.getenv("BACKEND_URL", "http://localhost:5000")
+
+PROGRESS_SERVICE_URL = f"{BACKEND_URL}/api/update_progress"
 
 fetch_clean_doc_bp = Blueprint("fetch_clean_doc", __name__)
 fetch_user_docs_bp = Blueprint("fetch_user_docs", __name__)
