@@ -25,6 +25,8 @@ PROGRESS_COLLECTION_ID = os.getenv("APPWRITE_USER_PROGRESS_COLLECTION_ID")
 GEMINI_API_KEY = os.getenv("GEMINI_API_KEY")
 GEMINI_ENDPOINT = "https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent"
 
+BACKEND_URL = os.getenv("BACKEND_URL", "http://localhost:5000")
+
 
 def extract_json_from_text(text):
     try:
@@ -139,7 +141,7 @@ Respond in the format:
         if xp_awarded > 0:
             try:
                 requests.post(
-                    "http://127.0.0.1:5000/api/update_progress",  
+                    f"{BACKEND_URL}/api/update_progress",
                     json={
                         "user_id": user_id,
                         "xp_earned": xp_awarded,
