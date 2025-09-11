@@ -1,5 +1,7 @@
 # 📝 FunDocs
 
+<img width="1919" height="823" alt="Screenshot 2025-09-12 033530" src="https://github.com/user-attachments/assets/98c0429d-edec-4562-89a9-207b5846689c" />
+
 Turn boring documentation into **interactive quests**! FunDocs gamifies learning by transforming documentation into fun stories, explanations, flashcards, coding challenges, and step-by-step guides.
 
 FunDocs is built with **Next.js** for the frontend, **Flask** for the backend, and **Appwrite** for user management, storage and database. It leverages **Gemini** for AI-powered content generation.
