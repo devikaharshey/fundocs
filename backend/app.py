@@ -11,7 +11,7 @@ from routes.submit_challenge import submit_challenge_bp
 from routes.report_routes import report_bp
 from routes.leaderboard import leaderboard_bp
 
-FRONTEND_URL = os.getenv("FRONTEND_URL", "http://localhost:3000")
+FRONTEND_URL = os.getenv("FRONTEND_URL", "https://fundocs.appwrite.network/")
 
 app = Flask(__name__)
 CORS(
