@@ -16,11 +16,10 @@ app = Flask(__name__)
 
 CORS(
     app,
-    resources={r"/api/*": {"origins": FRONTEND_URL}},  
+    resources={r"/api/*": {"origins": FRONTEND_URL}},
     supports_credentials=True,
     methods=["GET", "POST", "PUT", "DELETE", "OPTIONS"],
-    allow_headers=["Content-Type", "Authorization"],
-    automatic_options=True  
+    allow_headers=["Content-Type", "Authorization"]
 )
 
 # Register routes
@@ -33,6 +32,14 @@ app.register_blueprint(progress_bp, url_prefix="/api")
 app.register_blueprint(submit_challenge_bp, url_prefix="/api")
 app.register_blueprint(report_bp, url_prefix="/api")
 app.register_blueprint(leaderboard_bp, url_prefix="/api")
+
+@app.after_request
+def add_cors_headers(response):
+    response.headers["Access-Control-Allow-Origin"] = FRONTEND_URL
+    response.headers["Access-Control-Allow-Credentials"] = "true"
+    response.headers["Access-Control-Allow-Headers"] = "Content-Type,Authorization"
+    response.headers["Access-Control-Allow-Methods"] = "GET,POST,PUT,DELETE,OPTIONS"
+    return response
 
 if __name__ == "__main__":
     app.run(debug=True, port=5000)
