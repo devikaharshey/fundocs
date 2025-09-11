@@ -7,6 +7,8 @@ import { motion } from "framer-motion";
 import { Loader2 } from "lucide-react";
 import { toast, Toaster } from "sonner";
 
+export const dynamic = "force-dynamic";
+
 export default function VerifyPage() {
   const searchParams = useSearchParams();
   const router = useRouter();
