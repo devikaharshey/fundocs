@@ -1,8 +1,7 @@
 import os
 from flask import Flask
 from flask_cors import CORS
-from routes.fetch_clean_doc import fetch_clean_doc_bp
-from routes.fetch_clean_doc import fetch_user_docs_bp
+from routes.fetch_clean_doc import fetch_clean_doc_bp, fetch_user_docs_bp
 from routes.delete_account import delete_account_bp
 from routes.generated_all import generate_all_bp
 from routes.delete_doc import delete_doc_bp
@@ -11,15 +10,16 @@ from routes.submit_challenge import submit_challenge_bp
 from routes.report_routes import report_bp
 from routes.leaderboard import leaderboard_bp
 
-FRONTEND_URL = os.getenv("FRONTEND_URL", "https://fundocs.appwrite.network/")
+FRONTEND_URL = os.getenv("FRONTEND_URL", "https://fundocs.appwrite.network")
 
 app = Flask(__name__)
+
 CORS(
     app,
-    resources={r"/*": {"origins": FRONTEND_URL}},
+    resources={r"/api/*": {"origins": FRONTEND_URL}},  
     supports_credentials=True,
-    allow_headers=["Content-Type"],
-    methods=["GET", "POST", "OPTIONS", "DELETE"]
+    methods=["GET", "POST", "PUT", "DELETE", "OPTIONS"],
+    allow_headers=["Content-Type", "Authorization"],
 )
 
 # Register routes
