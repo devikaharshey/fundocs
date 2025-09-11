@@ -20,6 +20,7 @@ CORS(
     supports_credentials=True,
     methods=["GET", "POST", "PUT", "DELETE", "OPTIONS"],
     allow_headers=["Content-Type", "Authorization"],
+    automatic_options=True  
 )
 
 # Register routes
