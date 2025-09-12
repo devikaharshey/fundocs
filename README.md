@@ -21,13 +21,13 @@ FunDocs aims to make reading and learning documentation **engaging, gamified, an
 
 ## 🚀 Core Features
 
-* **Docs Explorer / Level Map** – Navigate your docs as interactive levels.
-* **Story Mode & Explain Slider** – AI-generated analogies and step-by-step breakdowns.
-* **Challenges & Flashcards** – Interactive coding tasks and bite-sized learning cards.
-* **Gamification** – XP, badges, streaks, leaderboard tracking.
-* **Tips Layer** – Add, upvote, downvote, or delete notes with responsive grid layouts.
-* **User Management** – Signup/Login, avatar upload, profile page, protected routes.
-* **Enhanced Markdown** – Collapsible and copyable code blocks for better readability.
+1. 𝗗𝗼𝗰𝘀 𝗘𝘅𝗽𝗹𝗼𝗿𝗲𝗿 – Navigate through a curated collection of various tech docs.
+2. 𝗦𝘁𝗼𝗿𝘆 𝗠𝗼𝗱𝗲 & 𝗦𝘁𝗲𝗽-𝗯𝘆-𝗦𝘁𝗲𝗽 𝗘𝘅𝗽𝗹𝗮𝗶𝗻𝗲𝗿 – AI-generated analogies and step-by-step breakdowns.
+3. 𝗖𝗵𝗮𝗹𝗹𝗲𝗻𝗴𝗲𝘀 & 𝗙𝗹𝗮𝘀𝗵𝗰𝗮𝗿𝗱𝘀 – Interactive coding tasks and bite-sized learning cards.
+4. 𝗚𝗮𝗺𝗶𝗳𝗶𝗰𝗮𝘁𝗶𝗼𝗻 – XP, badges, streaks, leaderboard tracking.
+5. 𝗧𝗶𝗽𝘀 𝗟𝗮𝘆𝗲𝗿 – Add, upvote, downvote, or delete notes with responsive grid layouts.
+6. 𝗨𝘀𝗲𝗿 𝗠𝗮𝗻𝗮𝗴𝗲𝗺𝗲𝗻𝘁 – Signup/Login, avatar upload, profile page, protected routes, storage & database, all powered by Appwrite.
+7. 𝗘𝗻𝗵𝗮𝗻𝗰𝗲𝗱 𝗠𝗮𝗿𝗸𝗱𝗼𝘄𝗻 – Collapsible and copyable code blocks for better readability.
 
 ---
 
