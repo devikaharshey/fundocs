@@ -13,6 +13,7 @@ import {
   Users,
 } from "lucide-react";
 import React, { useState, useEffect, useCallback } from "react";
+import { useAuth } from "@/context/AuthContext";
 
 // FlipWords component
 export const FlipWords = ({
@@ -85,6 +86,7 @@ export const FlipWords = ({
 };
 
 export default function Home() {
+  const user = useAuth().user;
   const ctaButtons = [
     {
       href: "/explore",
@@ -350,8 +352,16 @@ export default function Home() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7, ease: "easeInOut" }}
         >
-          Join the <span className="text-primary">FunDocs</span> <br />{" "}
-          Community
+          {!user ? (
+            <>
+              Join the <span className="text-primary">FunDocs</span> <br />{" "}
+              Community
+            </>
+          ) : (
+            <>
+              Welcome Back to <span className="text-primary">FunDocs !</span> 
+            </>
+          )}
         </motion.h2>
 
         {/* Buttons */}
@@ -361,37 +371,57 @@ export default function Home() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7, ease: "easeInOut", delay: 0.15 }}
         >
-          <motion.div
-            whileHover={{
-              y: -4,
-              scale: 1.05,
-              boxShadow: "0 10px 25px rgba(0,0,0,0.35)",
-            }}
-            transition={{ type: "tween", duration: 0.4, ease: "easeInOut" }}
-          >
-            <Link
-              href="/signup"
-              className="px-6 py-3 rounded-xl bg-gradient-to-r from-primary to-primary/80 text-white font-semibold shadow-md hover:from-primary/90 hover:to-primary/70 transition"
-            >
-              Sign Up
-            </Link>
-          </motion.div>
+          {!user ? (
+            <>
+              <motion.div
+                whileHover={{
+                  y: -4,
+                  scale: 1.05,
+                  boxShadow: "0 10px 25px rgba(0,0,0,0.35)",
+                }}
+                transition={{ type: "tween", duration: 0.4, ease: "easeInOut" }}
+              >
+                <Link
+                  href="/signup"
+                  className="px-6 py-3 rounded-xl bg-gradient-to-r from-primary to-primary/80 text-white font-semibold shadow-md hover:from-primary/90 hover:to-primary/70 transition"
+                >
+                  Sign Up
+                </Link>
+              </motion.div>
 
-          <motion.div
-            whileHover={{
-              y: -4,
-              scale: 1.05,
-              boxShadow: "0 10px 25px rgba(0,0,0,0.35)",
-            }}
-            transition={{ type: "tween", duration: 0.4, ease: "easeInOut" }}
-          >
-            <Link
-              href="/login"
-              className="px-6 py-3 rounded-xl border border-gray-600 text-white font-semibold hover:bg-gray-700/50 transition shadow-md"
+              <motion.div
+                whileHover={{
+                  y: -4,
+                  scale: 1.05,
+                  boxShadow: "0 10px 25px rgba(0,0,0,0.35)",
+                }}
+                transition={{ type: "tween", duration: 0.4, ease: "easeInOut" }}
+              >
+                <Link
+                  href="/login"
+                  className="px-6 py-3 rounded-xl border border-gray-600 text-white font-semibold hover:bg-gray-700/50 transition shadow-md"
+                >
+                  Log In
+                </Link>
+              </motion.div>
+            </>
+          ) : (
+            <motion.div
+              whileHover={{
+                y: -4,
+                scale: 1.05,
+                boxShadow: "0 10px 25px rgba(0,0,0,0.35)",
+              }}
+              transition={{ type: "tween", duration: 0.4, ease: "easeInOut" }}
             >
-              Log In
-            </Link>
-          </motion.div>
+              <Link
+                href="/dashboard"
+                className="px-6 py-3 rounded-xl bg-gradient-to-r from-primary to-primary/80 text-white font-semibold shadow-md hover:from-primary/90 hover:to-primary/70 transition"
+              >
+                Go to Dashboard
+              </Link>
+            </motion.div>
+          )}
         </motion.div>
       </div>
     </div>
