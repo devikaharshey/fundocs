@@ -7,14 +7,21 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Textarea } from "@/components/ui/textarea";
 import { Button } from "@/components/ui/button";
 import { Markdown } from "@/components/ui/markdown";
-import { ClipboardIcon, Loader2, RocketIcon, CheckCircle2 } from "lucide-react";
+import {
+  ClipboardIcon,
+  Loader2,
+  RocketIcon,
+  CheckCircle2,
+  Plus,
+} from "lucide-react";
 import { account } from "@/lib/appwrite";
 import Flashcard from "@/components/ui/Flashcard";
 import { toast, Toaster } from "sonner";
 import ChallengeSubmissionModal from "@/components/ui/ChallengeSubmissionModal";
 import { ProtectedRoute } from "@/components/auth-ui/ProtectedRoute";
 
-const BACKEND_URL = process.env.NEXT_PUBLIC_BACKEND_URL || "http://127.0.0.1:5000";
+const BACKEND_URL =
+  process.env.NEXT_PUBLIC_BACKEND_URL || "http://127.0.0.1:5000";
 
 export default function AddDocPage() {
   const [source, setSource] = useState("");
@@ -33,6 +40,10 @@ export default function AddDocPage() {
   const [modalOpen, setModalOpen] = useState(false);
   const [currentChallenge, setCurrentChallenge] = useState("");
   const [currentDocId, setCurrentDocId] = useState("");
+
+  const handleNewDoc = () => {
+    window.location.reload();
+  };
 
   const handleCopy = (id: string, text: string) => {
     navigator.clipboard.writeText(text);
@@ -122,6 +133,21 @@ export default function AddDocPage() {
     <ProtectedRoute>
       <div className="relative font-sans w-full min-h-screen flex flex-col items-center px-4 sm:px-6 md:px-8 pt-28 bg-gray-900">
         <Toaster position="top-right" richColors />
+
+        {submitted && (
+          <div className="absolute top-6 right-6 z-10">
+            <Button
+              variant="secondary"
+              onClick={handleNewDoc}
+              className="flex h-10 w-10 rounded-full bg-primary items-center justify-center text-white p-0"
+              aria-label="Add New Document"
+              title="Add New Document"
+            >
+              <Plus className="h-5 w-5" />
+            </Button>
+          </div>
+        )}
+
         <div className="absolute inset-0 bg-gradient-to-b from-primary/10 via-transparent to-transparent blur-3xl pointer-events-none z-0" />
 
         <motion.h1
